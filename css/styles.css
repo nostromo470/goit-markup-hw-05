@@ -37,9 +37,10 @@ section {
 
 /* Header */
 
-.header-nav {
-  padding-top: 24px;
-  padding-bottom: 25px;
+.page-header {
+  height: 80px;
+  display: block;
+  align-items: center;
 }
 
 .logo {
@@ -58,6 +59,24 @@ section {
 
 .active-pg-name-color {
   color: var(--blue-text);
+  /* display: inline-block; */
+}
+
+.active-link {
+  position: relative;
+  display: inline-block;
+}
+
+.active-link::after {
+  position: absolute;
+  top: 43px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--blue-text);
+  border-radius: 2px;
+  /* margin-top: 28px; */
 }
 
 .header-links li:not(:last-child) {
@@ -75,6 +94,7 @@ section {
 }
 
 .header-nav {
+  height: 80px;
   justify-content: space-between;
   align-items: center;
 }
@@ -83,6 +103,7 @@ section {
   margin: 0;
   padding: 0;
   display: flex;
+  align-items: center;
 }
 .header-link {
   color: var(--black-light-text);
@@ -90,6 +111,8 @@ section {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.02em;
+
+  transition: color var(--transition-dur-timing-);
 }
 
 .header-link:hover,
@@ -111,6 +134,8 @@ section {
   color: #757575;
   display: flex;
   align-items: center;
+
+  transition: color var(--transition-dur-timing-);
 }
 
 .link:hover,
@@ -145,7 +170,6 @@ section {
   margin-right: auto;
   padding-top: 200px;
   padding-bottom: 200px;
-  outline: 1px solid tomato;
   background-image: linear-gradient(
       to right,
       rgba(47, 48, 58, 0.4),
@@ -267,10 +291,29 @@ section {
 }
 
 .photos > .item {
-  /* outline: 1px solid teal; */
+  position: relative;
+  outline: 1px solid teal;
   flex-basis: calc(100% / 3);
   margin-left: var(--margin-left);
   margin-top: var(--margin-top);
+}
+
+.item p {
+  position: absolute;
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--white-text);
+
+  background: rgba(47, 48, 58, 0.8);
+  bottom: 0px;
 }
 
 .item > img {
@@ -347,6 +390,9 @@ section {
   align-items: center;
   margin-right: 10px;
   color: #afb1b8;
+
+  transition: color var(--transition-dur-timing-),
+    background-color var(--transition-dur-timing-);
 }
 
 .social-links:hover,
@@ -389,6 +435,9 @@ section {
   color: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: color var(--transition-dur-timing-),
+    border-color var(--transition-dur-timing-);
 }
 
 .clients-link:hover,
@@ -441,6 +490,7 @@ footer {
   margin-right: 10px;
   color: var(--white-text);
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition-dur-timing-);
 }
 
 .social-icon-footer {
@@ -513,20 +563,20 @@ hr {
   letter-spacing: 0.03em;
   cursor: pointer;
   border-radius: 4px;
+  transition: color var(--transition-dur-timing-),
+    background-color var(--transition-dur-timing-),
+    box-shadow var(--transition-dur-timing-);
 }
 
 .portfolio-button:hover,
 .portfolio-button:focus {
-  border: none;
   color: var(--white-text);
   background-color: var(--blue-text);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 .cards {
-  /* outline: 1px solid tomato; */
   display: flex;
   flex-wrap: wrap;
   margin-left: var(--margin-left-);
@@ -534,10 +584,10 @@ hr {
 }
 
 .cards > .crd {
-  /* outline: 1px solid teal; */
   flex-basis: calc(100% / 3 - 30px);
   margin-left: var(--margin-left);
   margin-top: var(--margin-top);
+  transition: box-shadow var(--transition-dur-timing-);
 }
 
 .cards > .crd:hover,
@@ -555,8 +605,28 @@ hr {
 }
 
 .card-thumb1 {
+  position: relative;
   padding: 0;
   margin: 0;
+  overflow: hidden;
+}
+
+.crd:hover .hover-text {
+  transform: translateY(-100%);
+}
+
+.hover-text {
+  position: absolute;
+  transform: translateY(0);
+  display: block;
+  width: 100%;
+  height: 294px;
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  color: var(--white-text);
+  background: rgba(33, 150, 243, 0.9);
 }
 
 .card-thumb1 > img {
